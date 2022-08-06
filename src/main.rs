@@ -10,7 +10,7 @@ fn main() {
 
     let letter_seq: Vec<char> = args[1].chars().collect();
 
-    let dict = load_dict();
+    let dict = load_dict("src/sortedDic.txt");
 
     // Print out all n letter words that can be made from letter sequence
     for n in 1..letter_seq.len()+1 {
@@ -51,8 +51,8 @@ fn filter_dict_words(perms: Vec<String>, dict: &HashSet<String>) -> Vec<String> 
 }
 
 
-fn load_dict() -> HashSet<String> {
-    let file = fs::File::open("src/sortedDic.txt")
+fn load_dict(filename: &str) -> HashSet<String> {
+    let file = fs::File::open(filename)
                         .expect("No such file");
 
     let buf = BufReader::new(file);
