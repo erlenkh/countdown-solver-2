@@ -25,14 +25,14 @@ fn print_valid_words(letter_seq: &Vec<char>, dict: &HashSet<String>) {
         
         let valid_words = dict_words(permutations, &dict);
 
-        println!("Valid {n} letter words:");
-
         if valid_words.len() > 0 {
+            println!("Valid {n}-letter words:");
+
             for word in valid_words {
                 println!("{word}");
             }
         } else {
-            println!("(No words found)");
+            println!("No valid {n}-letter words found");
         }
     
         println!("\n");
