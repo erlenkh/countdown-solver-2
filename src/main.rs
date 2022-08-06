@@ -52,7 +52,7 @@ fn filter_dict_words(perms: Vec<String>, dict: &HashSet<String>) -> Vec<String> 
 
 
 fn load_dict() -> HashSet<String> {
-    let file = fs::File::open("sortedDic.txt")
+    let file = fs::File::open("src/sortedDic.txt")
                         .expect("No such file");
 
     let buf = BufReader::new(file);
