@@ -1,6 +1,8 @@
 # Countdown word puzzle solver
 
-Solves word puzzle from countdown.
+Solves word puzzle from panel show Countdown.
+
+Prints out all valid dictionary words that can be constructed with letters from input letter sequence.
 
 sortedDic.txt taken from https://github.com/JnLvn/Countdown-Letter-Game
 
