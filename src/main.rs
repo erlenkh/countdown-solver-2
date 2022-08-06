@@ -10,11 +10,11 @@ use itertools::Itertools;
 fn main() {
     let args: Vec<String> = env::args().collect();
 
-    let letter_seq: Vec<char> = args[1].chars().collect();
+    let letter_sequence: Vec<char> = args[1].chars().collect();
 
-    let dict = load_dictionary("src/sortedDic.txt");
+    let dictionary = load_dictionary("src/sortedDic.txt");
 
-    print_valid_words(&letter_seq, &dict);
+    print_valid_words(&letter_sequence, &dictionary);
 }
 
 /// Prints out all valid n-letter words that can be made from letter sequence,
