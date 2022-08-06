@@ -10,13 +10,13 @@ fn main() {
 
     let letter_seq: Vec<char> = args[1].chars().collect();
 
-    let dict = load_dict("src/sortedDic.txt");
+    let dict = load_dictionary("src/sortedDic.txt");
 
     // Print out all n letter words that can be made from letter sequence
     for n in 1..letter_seq.len()+1 {
-        let permutations: Vec<String> = get_all_n_letter_perms(&letter_seq, n);
+        let permutations: Vec<String> = n_letter_perms(&letter_seq, n);
         
-        let valid_words = filter_dict_words(permutations, &dict);
+        let valid_words = dict_words(permutations, &dict);
 
         println!("{n} letter words:");
         print_words(&valid_words); 
@@ -35,8 +35,7 @@ fn print_words(words: &Vec<String>) {
     println!("\n");
 }
 
-
-fn get_all_n_letter_perms(letter_seq: &Vec<char>, n: usize) -> Vec<String> {
+fn n_letter_perms(letter_seq: &Vec<char>, n: usize) -> Vec<String> {
     letter_seq.iter()
             .permutations(n)
             .unique()
@@ -44,14 +43,14 @@ fn get_all_n_letter_perms(letter_seq: &Vec<char>, n: usize) -> Vec<String> {
             .collect()
 }
 
-fn filter_dict_words(perms: Vec<String>, dict: &HashSet<String>) -> Vec<String> {
-    perms.into_iter()
-        .filter(|x| dict.contains(x))
-        .collect()
+fn dict_words(letter_seqs: Vec<String>, dict: &HashSet<String>) -> Vec<String> {
+    letter_seqs.into_iter()
+            .filter(|x| dict.contains(x))
+            .collect()
 }
 
 
-fn load_dict(filename: &str) -> HashSet<String> {
+fn load_dictionary(filename: &str) -> HashSet<String> {
     let file = fs::File::open(filename)
                         .expect("No such file");
 
