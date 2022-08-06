@@ -23,10 +23,12 @@ fn print_valid_words(letter_seq: &Vec<char>, dict: &HashSet<String>) {
     for n in 1..letter_seq.len()+1 {
         let permutations: Vec<String> = n_letter_perms(&letter_seq, n);
         
-        let valid_words = dict_words(permutations, &dict);
-
+        let mut valid_words = dict_words(permutations, &dict);
+        
         if valid_words.len() > 0 {
             println!("Valid {n}-letter words:");
+
+            valid_words.sort();
 
             for word in valid_words {
                 println!("{word}");
