@@ -17,7 +17,7 @@ fn main() {
     print_valid_words(&letter_seq, &dict);
 }
 
-/// Prints out all valid n letter words that can be made from letter sequence,
+/// Prints out all valid n-letter words that can be made from letter sequence,
 /// where n goes from 1 to length of letter sequence.
 fn print_valid_words(letter_seq: &Vec<char>, dict: &HashSet<String>) {
     for n in 1..letter_seq.len()+1 {
@@ -39,7 +39,7 @@ fn print_valid_words(letter_seq: &Vec<char>, dict: &HashSet<String>) {
     }
 }
 
-/// Returns all n letter permutations of letter sequence.
+/// Returns vector of all n-letter permutations of input letter sequence.
 fn n_letter_perms(letter_seq: &Vec<char>, n: usize) -> Vec<String> {
     letter_seq.iter()
             .permutations(n)
@@ -48,7 +48,7 @@ fn n_letter_perms(letter_seq: &Vec<char>, n: usize) -> Vec<String> {
             .collect()
 }
 
-/// Filters out all non-dictionary words from Vector of letter sequence.
+/// Filters out all non-dictionary words from vector of letter sequences.
 fn dict_words(letter_seqs: Vec<String>, dict: &HashSet<String>) -> Vec<String> {
     letter_seqs.into_iter()
             .filter(|x| dict.contains(x))
