@@ -1,8 +1,10 @@
-use std::fs;
-use std::io::BufReader;
-use std::io::prelude::*;
-use std::env;
-use std::collections::HashSet;
+use std::{
+    fs,
+    io::BufReader,
+    io::prelude::*,
+    env,
+    collections::HashSet
+};
 use itertools::Itertools;
 
 fn main() {
